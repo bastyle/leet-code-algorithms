@@ -66,11 +66,12 @@ public class RecyclingGarbageTrucks2 {
 		for (int i = 0; i < D.length; i++) {
 			final String garbageBagsType = D[i];
 			travelTime += T[i];
+			System.out.println("travel time: "+travelTime);
 
 			int plasticBags = (garbageBagsType.length() - garbageBagsType.replaceAll("P", "").length());
 			System.out.printf("index %d plasticBags %d \n", i, plasticBags);
 			//int plasticTime = plasticBags > 0 ? plasticBags + (travelTime * 2) : 0;
-			plasticTime = plasticBags > 0 ? plasticBags + (travelTime * 2) : 0;
+			plasticTime = (i==0? plasticBags + T[i]*2 : (plasticBags > 0 ? plasticBags + (travelTime * 2) : 0));
 			System.out.println("plastic time: " + plasticTime);
 			maxTime = Math.max(maxTime, plasticTime);
 			System.out.println("maxTime: " + maxTime + "------");
